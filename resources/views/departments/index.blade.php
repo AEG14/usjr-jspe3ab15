@@ -11,6 +11,5 @@
                 (College: {{ $department->college->collfullname }})
             </li>
         @endforeach
-    @endforeach
     </ul>
 @endsection
