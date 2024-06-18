@@ -7,5 +7,22 @@ use Illuminate\Database\Eloquent\Model;
 
 class College extends Model
 {
+    protected $primaryKey = 'collid';
+    protected $fillable = ['collfullname', 'collshortname'];
+
+    public function departments()
+    {
+        return $this->hasMany(Department::class, 'deptcollid');
+    }
+
+    public function programs()
+    {
+        return $this->hasMany(Program::class, 'progcollid');
+    }
+
+    public function students()
+    {
+        return $this->hasMany(Student::class, 'studcollid');
+    }
     use HasFactory;
 }

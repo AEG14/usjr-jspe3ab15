@@ -7,5 +7,18 @@ use Illuminate\Database\Eloquent\Model;
 
 class Student extends Model
 {
+    protected $primaryKey = 'studid';
+    protected $fillable = ['studfirstname', 'studlastname', 'studmidname', 'studprogid', 'studcollid', 'studyear'];
+
+    public function program()
+    {
+        return $this->belongsTo(Program::class, 'studprogid');
+    }
+
+    public function college()
+    {
+        return $this->belongsTo(College::class, 'studcollid');
+    }
+    
     use HasFactory;
 }
